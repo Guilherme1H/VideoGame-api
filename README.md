@@ -1,66 +1,66 @@
-# 📚 API de Gerenciamento de Livros
+🎮 API de Gerenciamento de Jogos
+E aí! Essa é uma API RESTful que criei para gerenciar jogos, desenvolvedoras, publishers e plataformas. Ela foi desenvolvida com Quarkus para a disciplina de Web Services e o foco foi construir uma API robusta e moderna, implementando conceitos avançados como: segurança (API Key e Rate Limiting), idempotência para evitar requisições duplicadas e HATEOAS para uma navegação inteligente.
 
-E aí! Essa é uma API RESTful que criei para gerenciar livros, autores e plataformas. Ela foi desenvolvida com Quarkus para a disciplina de Web Services e o foco foi fazer uma API moderna: com HATEOAS (aqueles links que te guiam na API), validações nos dados, paginação e ordenação pra organizar tudo.
+🚀 O que usei pra construir?
+Quarkus: Meu framework Java preferido! Leve, rápido e perfeito para APIs de alta performance.
+Java 17: A linguagem por trás de tudo, em sua versão moderna.
+Panache: Ajuda demais a lidar com o banco de dados de um jeito simples e produtivo.
+Hibernate Validator: Pra garantir que os dados que chegam na API estão sempre certinhos.
+H2 Database: Um banco de dados em memória, rapidinho para rodar localmente e testar.
+Princípios REST Avançados:
+HATEOAS: Links inteligentes que te mostram o que fazer em seguida na API.
+Segurança: Filtros para autenticação via X-API-Key e controle de Rate Limiting.
+Idempotência: Proteção contra requisições duplicadas usando Idempotency-Key.
+Filtros JAX-RS: Implementação de logging e ETag para otimização de cache.
+Guava: Biblioteca do Google utilizada para o cache eficiente do Rate Limiting e da Idempotência.
+�� O que essa API faz?
+Essa API te permite gerenciar o ecossistema de um catálogo de jogos:
 
-## �� O que usei pra construir?
+🎮 Jogos:
+Criar, ver, atualizar e apagar jogos.
+Listar todos os jogos com filtros (por gênero) e ordenação (por título ou avaliação).
+Ver os jogos de uma desenvolvedora específica.
+👩‍💻 Desenvolvedoras:
+Criar, ver, atualizar e apagar.
+Associar a uma Publisher no momento da criação/atualização.
+🏢 Publishers:
+Criar, ver, atualizar e apagar.
+Funciona como o "guarda-chuva" que agrupa várias desenvolvedoras (relação One-to-Many).
+�� Para testar
+Pra você ver tudo funcionando e até fazer umas chamadas de teste, use o Swagger UI! Ele já está configurado com toda a documentação, exemplos e os campos para autenticação.
 
-*   **Quarkus**: Meu framework Java preferido! Leve, rápido e perfeito para APIs.
-*   **Java**: A linguagem por trás de tudo.
-*   **Panache**: Ajuda demais a lidar com o banco de dados de um jeito simples.
-*   **Hibernate Validator**: Pra garantir que os dados que chegam na API estão sempre certinhos.
-*   **Flyway**: Cuida da evolução do banco de dados, tipo um "controle de versão" pra ele.
-*   **H2 Database**: Um banco de dados rapidinho pra rodar localmente (mas dá pra trocar fácil!).
-*   **HATEOAS**: A cereja do bolo! Links inteligentes que te mostram o que fazer em seguida na API.
+Rodando no seu PC: 
+localhost
+🛠️ Colocando pra Rodar
+O que você precisa ter: Java 17+ e Maven 3.8+.
 
-## 🌟 O que essa API faz?
+Pegar o código:
 
-Essa API te permite gerenciar tudo de uma biblioteca:
+bash
+Copiar
 
-*   📖 **Livros**:
-    *   Criar, ver, atualizar, apagar.
-    *   Pesquisar por título, ISBN, ano, etc.
-    *   Mudar o status (disponível, emprestado, em manutenção, extraviado).
-    *   Ver os livros de um desenvolvedora ou plataforma específica.
-*   ✍️ **Autores**:
-    *   Criar, ver, atualizar, apagar.
-    *   Pesquisar por nome ou nacionalidade.
-*   �� **Editoras**:
-    *   Criar, ver, atualizar, apagar.
-    *   Pesquisar por nome, endereço, contato.
-    *   Ver os detalhes de contato (telefone, e-mail).
+git clone https://github.com/Guilherme1H/VideoGame-api.git
+cd VideoGame-api
+Rodar no modo "desenvolvimento" (com atualizações automáticas):
 
-## 🧭 Para testar
+bash
+Copiar
 
-Pra você ver tudo funcionando e até fazer umas chamadas de teste, use o Swagger UI!
+./mvnw quarkus:dev
+A API estará em http://localhost:8080 e qualquer mudança no código já aparece na hora!
 
-*   **Rodando no seu PC**: `http://localhost:8080/q/swagger-ui/`
+Pra gerar um arquivo final (tipo pra produção):
 
+bash
+Copiar
 
-## 🛠️ Colocando pra Rodar
-
-1.  **O que você precisa ter**: Java 17+ e Maven 3.8+.
-2.  **Pegar o código**:
-    ```bash
-    git clone https://github.com/Guilherme1H/Livro-api1.git
-    cd Livro-api
-    ```
-3.  **Rodar no modo "desenvolvimento" (com atualizações automáticas)**:
-    ```bash
-    ./mvnw quarkus:dev
-    ```
-    A API estará em `http://localhost:8080` e qualquer mudança no código já aparece na hora!
-4.  **Pra gerar um arquivo final (tipo pra produção)**:
-    ```bash
-    ./mvnw clean package
-    java -jar target/quarkus-app/quarkus-run.jar
-    ```
-
-## 🧠 As Peças Chave do Sistema (Entidades)
-
-*   **Livro**: Onde ficam todas as infos dos livros.
-*   **Autor**: Quem escreveu os livros.
-*   **Editora**: Quem publica os livros, com dados de contato separados (DetalhesEditora).
-
-## 📄 Licença
-
-Relaxa! Esse projeto é de uso livre.
+./mvnw clean package
+java -jar target/quarkus-app/quarkus-run.jar
+🧠 As Peças Chave do Sistema (Entidades)
+Jogo: Onde ficam todas as informações dos jogos.
+JogoDetalhes: Entidade separada para guardar a descrição e avaliação, demonstrando um relacionamento One-to-One com Jogo.
+Desenvolvedora: Quem faz os jogos.
+Publisher: Quem publica os jogos. Uma Publisher pode ter várias Desenvolvedoras, demonstrando um relacionamento One-to-Many.
+Plataforma: Onde os jogos rodam. A relação entre Jogo e Plataforma/Desenvolvedora é Many-to-Many.
+�� Licença
+Relaxa! Esse projeto é de uso livre para fins acadêmicos.
