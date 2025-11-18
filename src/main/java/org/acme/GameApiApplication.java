@@ -3,21 +3,27 @@ package org.acme;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeIn;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeType;
-import org.eclipse.microprofile.openapi.annotations.info.Contact; // Import necessário
+import org.eclipse.microprofile.openapi.annotations.info.Contact;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
+import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
+import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 
+@ApplicationPath("/api")
 @OpenAPIDefinition(
         info = @Info(
                 title = "API de Videogames",
                 description = "Uma API RESTful para gerenciar informações sobre videogames, desenvolvedoras e plataformas.",
                 version = "1.0.0",
                 contact = @Contact(
-                name = "Guilherme Henrique",
-                email = "itzguihxn@gmail.com"
+                        name = "Guilherme Henrique",
+                        email = "itzguihxn@gmail.com"
                 )
-        )
+        ),
+        security = {
+                @SecurityRequirement(name = "apiKeyAuth")
+        }
 )
 @SecurityScheme(
         securitySchemeName = "apiKeyAuth",
