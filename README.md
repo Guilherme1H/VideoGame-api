@@ -1,6 +1,6 @@
 # 📚 API de Gerenciamento de Livros
 
-E aí! Essa é uma API RESTful que criei para gerenciar livros, autores e editoras. Ela foi desenvolvida com Quarkus para a disciplina de Web Services e o foco foi fazer uma API moderna: com HATEOAS (aqueles links que te guiam na API), validações nos dados, paginação e ordenação pra organizar tudo.
+E aí! Essa é uma API RESTful que criei para gerenciar livros, autores e plataformas. Ela foi desenvolvida com Quarkus para a disciplina de Web Services e o foco foi fazer uma API moderna: com HATEOAS (aqueles links que te guiam na API), validações nos dados, paginação e ordenação pra organizar tudo.
 
 ## �� O que usei pra construir?
 
@@ -20,7 +20,7 @@ Essa API te permite gerenciar tudo de uma biblioteca:
     *   Criar, ver, atualizar, apagar.
     *   Pesquisar por título, ISBN, ano, etc.
     *   Mudar o status (disponível, emprestado, em manutenção, extraviado).
-    *   Ver os livros de um autor ou editora específica.
+    *   Ver os livros de um desenvolvedora ou plataforma específica.
 *   ✍️ **Autores**:
     *   Criar, ver, atualizar, apagar.
     *   Pesquisar por nome ou nacionalidade.

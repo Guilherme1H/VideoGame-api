@@ -1,40 +1,30 @@
-DELETE FROM Livro_Autor;
-DELETE FROM Livro;
-DELETE FROM DetalhesEditora;
-DELETE FROM Editora;
-DELETE FROM Autor;
+ALTER SEQUENCE desenvolvedora_seq RESTART WITH 1;
+ALTER SEQUENCE plataforma_seq RESTART WITH 1;
+ALTER SEQUENCE jogo_seq RESTART WITH 1;
 
-INSERT INTO Editora (id, nome, endereco) VALUES (1, 'Companhia das Letras', 'Rua Bandeira Paulista, 702 - São Paulo');
-INSERT INTO DetalhesEditora (id, telefone, email, editora_id) VALUES (1, '(11) 3707-3500', 'contato@companhiadasletras.com.br', 1);
+INSERT INTO Desenvolvedora(id, nome, paisOrigem, anoFundacao) VALUES (nextval('desenvolvedora_seq'), 'CD Projekt Red', 'Polônia', 2002);
+INSERT INTO Desenvolvedora(id, nome, paisOrigem, anoFundacao) VALUES (nextval('desenvolvedora_seq'), 'Rockstar Games', 'EUA', 1998);
+INSERT INTO Desenvolvedora(id, nome, paisOrigem, anoFundacao) VALUES (nextval('desenvolvedora_seq'), 'FromSoftware', 'Japão', 1986);
+INSERT INTO Desenvolvedora(id, nome, paisOrigem, anoFundacao) VALUES (nextval('desenvolvedora_seq'), 'Naughty Dog', 'EUA', 1984);
+INSERT INTO Desenvolvedora(id, nome, paisOrigem, anoFundacao) VALUES (nextval('desenvolvedora_seq'), 'Santa Monica Studio', 'EUA', 1999);
+INSERT INTO Desenvolvedora(id, nome, paisOrigem, anoFundacao) VALUES (nextval('desenvolvedora_seq'), 'EA Sports', 'Canadá', 1991);
+INSERT INTO Desenvolvedora(id, nome, paisOrigem, anoFundacao) VALUES (nextval('desenvolvedora_seq'), 'Polyphony Digital', 'Japão', 1998);
+INSERT INTO Desenvolvedora(id, nome, paisOrigem, anoFundacao) VALUES (nextval('desenvolvedora_seq'), 'Infinity Ward', 'EUA', 2002);
 
-INSERT INTO Editora (id, nome, endereco) VALUES (2, 'Editora Rocco', 'Rua Prof. Alfredo Gomes, 37 - Rio de Janeiro');
-INSERT INTO DetalhesEditora (id, telefone, email, editora_id) VALUES (2, '(21) 3525-2000', 'sac@rocco.com.br', 2);
+INSERT INTO Plataforma(id, nome, fabricante, anoLancamento) VALUES (nextval('plataforma_seq'), 'PC', 'Vários', 1981);
+INSERT INTO Plataforma(id, nome, fabricante, anoLancamento) VALUES (nextval('plataforma_seq'), 'PlayStation 5', 'Sony', 2020);
+INSERT INTO Plataforma(id, nome, fabricante, anoLancamento) VALUES (nextval('plataforma_seq'), 'Xbox Series X/S', 'Microsoft', 2020);
+INSERT INTO Plataforma(id, nome, fabricante, anoLancamento) VALUES (nextval('plataforma_seq'), 'Nintendo Switch', 'Nintendo', 2017);
 
-INSERT INTO Editora (id, nome, endereco) VALUES (3, 'Editora Record', 'Rua Argentina, 171 - Rio de Janeiro');
-INSERT INTO DetalhesEditora (id, telefone, email, editora_id) VALUES (3, '(21) 2585-2000', 'atendimento@record.com.br', 3);
-
-INSERT INTO Editora (id, nome, endereco) VALUES (4, 'Nova Fronteira', 'Rua Nova York, 123 - Rio de Janeiro');
-INSERT INTO DetalhesEditora (id, telefone, email, editora_id) VALUES (4, '(21) 2222-1111', 'contato@novafronteira.com.br', 4);
-
-INSERT INTO Autor (id, nome, nacionalidade) VALUES (1, 'Machado de Assis', 'Brasileira');
-INSERT INTO Autor (id, nome, nacionalidade) VALUES (2, 'Paulo Coelho', 'Brasileira');
-INSERT INTO Autor (id, nome, nacionalidade) VALUES (3, 'Jorge Amado', 'Brasileira');
-INSERT INTO Autor (id, nome, nacionalidade) VALUES (4, 'João Guimarães Rosa', 'Brasileira');
-INSERT INTO Autor (id, nome, nacionalidade) VALUES (5, 'J.R.R. Tolkien', 'Britânica');
-
-INSERT INTO Livro (id, titulo, isbn, anoPublicacao, status, editora_id) VALUES (1, 'Dom Casmurro', '9788535907408', 1899, 'DISPONIVEL', 1);
-INSERT INTO Livro (id, titulo, isbn, anoPublicacao, status, editora_id) VALUES (2, 'O Alquimista', '9788532522328', 1988, 'DISPONIVEL', 2);
-INSERT INTO Livro (id, titulo, isbn, anoPublicacao, status, editora_id) VALUES (3, 'Capitães da Areia', '9788535900591', 1937, 'EMPRESTADO', 3);
-INSERT INTO Livro (id, titulo, isbn, anoPublicacao, status, editora_id) VALUES (4, 'Grande Sertão: Veredas', '9788520921934', 1956, 'DISPONIVEL', 4);
-INSERT INTO Livro (id, titulo, isbn, anoPublicacao, status, editora_id) VALUES (5, 'O Senhor dos Anéis', '9788533613379', 1954, 'EM_MANUTENCAO', 1);
-
-INSERT INTO Livro_Autor (livros_id, autores_id) VALUES (1, 1);
-INSERT INTO Livro_Autor (livros_id, autores_id) VALUES (2, 2);
-INSERT INTO Livro_Autor (livros_id, autores_id) VALUES (3, 3);
-INSERT INTO Livro_Autor (livros_id, autores_id) VALUES (4, 4);
-INSERT INTO Livro_Autor (livros_id, autores_id) VALUES (5, 5);
-
-ALTER SEQUENCE Editora_SEQ RESTART WITH 5;
-ALTER SEQUENCE DetalhesEditora_SEQ RESTART WITH 5;
-ALTER SEQUENCE Autor_SEQ RESTART WITH 6;
-ALTER SEQUENCE Livro_SEQ RESTART WITH 6;
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'The Witcher 3: Wild Hunt', 'RPG', '2015-05-19', 'Um caçador de monstros em um vasto mundo de fantasia.', 93.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'Cyberpunk 2077', 'RPG', '2020-12-10', 'Um RPG de ação em Night City, uma megalópole obcecada por poder.', 86.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'Persona 5 Royal', 'RPG', '2019-10-31', 'Ladrões fantasmas adolescentes que mudam os corações dos corruptos.', 95.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'Red Dead Redemption 2', 'ACAO_AVENTURA', '2018-10-26', 'A história de Arthur Morgan no fim da era do Velho Oeste.', 97.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'God of War Ragnarök', 'ACAO_AVENTURA', '2022-11-09', 'Kratos e Atreus enfrentam o apocalipse nórdico.', 94.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'The Last of Us Part I', 'ACAO_AVENTURA', '2022-09-02', 'Uma jornada brutal por uma América pós-pandêmica.', 88.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'Elden Ring', 'SOULS_LIKE', '2022-02-25', 'Explore as Terras Intermédias em busca de se tornar o Lorde Prístino.', 96.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'Dark Souls III', 'SOULS_LIKE', '2016-03-24', 'Em busca dos Senhores das Cinzas no reino de Lothric.', 89.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'Bloodborne', 'SOULS_LIKE', '2015-03-24', 'Um caçador em uma cidade gótica infestada por uma doença endêmica.', 92.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'FIFA 23', 'ESPORTES', '2022-09-30', 'O mais recente simulador de futebol da EA.', 76.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'NBA 2K23', 'ESPORTES', '2022-09-09', 'Simulador de basquete com modos de jogo variados.', 78.0);
+INSERT INTO Jogo(id, titulo, genero, dataLancamento, descricao, avaliacaoCritica) VALUES (nextval('jogo_seq'), 'F1 22', 'CORRIDA', '2022-07-01', 'O jogo oficial da temporada de 2022 da Fórmula 1.', 79.0);
