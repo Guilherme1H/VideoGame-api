@@ -2,6 +2,7 @@ package org.acme;
 
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import org.acme.Idempotent;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -78,6 +79,7 @@ public class JogoResource {
 
     @POST
     @Transactional
+    @Idempotent
     @Operation(summary = "Cadastrar novo jogo")
     @SecurityRequirement(name = "apiKeyAuth")
     @APIResponse(responseCode = "201", description = "Jogo criado com sucesso", content = @Content(schema = @Schema(implementation = JogoRepresentation.class)))

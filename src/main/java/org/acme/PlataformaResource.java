@@ -2,6 +2,7 @@ package org.acme;
 
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import org.acme.Idempotent;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -45,6 +46,7 @@ public class PlataformaResource {
 
     @POST
     @Transactional
+    @Idempotent
     @Operation(summary = "Cadastrar nova plataforma")
     @SecurityRequirement(name = "apiKeyAuth")
     @APIResponse(responseCode = "201", description = "Plataforma criada com sucesso", content = @Content(schema = @Schema(implementation = PlataformaRepresentation.class)))

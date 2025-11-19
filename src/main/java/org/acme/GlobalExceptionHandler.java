@@ -12,8 +12,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Provider
-public class GlobalExceptionHandler implements ExceptionMapper<Exception> { // Mudamos para Exception para pegar tudo
-
+public class GlobalExceptionHandler implements ExceptionMapper<Exception> {
     public static class ErrorResponse {
         public String message;
         public Map<String, String> details;

@@ -2,6 +2,7 @@ package org.acme;
 
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import org.acme.Idempotent;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -50,6 +51,7 @@ public class DesenvolvedoraResource {
 
     @POST
     @Transactional
+    @Idempotent
     @Operation(summary = "Cadastrar nova desenvolvedora")
     @SecurityRequirement(name = "apiKeyAuth")
     @APIResponse(responseCode = "201", description = "Desenvolvedora criada com sucesso.", content = @Content(schema = @Schema(implementation = DesenvolvedoraRepresentation.class)))
